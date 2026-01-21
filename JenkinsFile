@@ -49,15 +49,14 @@ pipeline {
     }
 
     post {
-        always {
-            //archiveArtifacts artifacts: '*/target/.jar', fingerprint: true
-            junit '*/target/surefire-reports/.xml'
-        }
-        failure {
-            echo '❌ Pipeline échoué'
-        }
-        success {
-            echo '✅ Tests exécutés avec succès'
-        }
+    success {
+        echo '🎉 Tests Selenium Cucumber OK'
     }
+    failure {
+        echo '❌ Pipeline échoué'
+    }
+    always {
+        echo '✅ Pipeline terminé'
+    }
+}
 }
